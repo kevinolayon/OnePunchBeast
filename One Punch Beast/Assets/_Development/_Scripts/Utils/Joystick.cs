@@ -8,6 +8,7 @@ public class Joystick : Singleton<Joystick>, IDragHandler, IPointerUpHandler, IP
     [SerializeField] RectTransform joyBg;
     [SerializeField] RectTransform joyThumb;
     [SerializeField] CanvasGroup joyGroup;
+
     Vector3 inputVector;
     Coroutine fadeJoy;
 
@@ -20,7 +21,31 @@ public class Joystick : Singleton<Joystick>, IDragHandler, IPointerUpHandler, IP
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
     */
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Show(eventData);
+        OnDrag(eventData);
+    }
+
     public void OnDrag(PointerEventData eventData)
+    {
+        Move(eventData);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        Release();
+    }
+
+    void Show(PointerEventData eventData) // Show joystick image in the touched position
+    {
+        joyGroup.DOKill();
+        joyGroup.alpha = 1;
+        joyBg.position = eventData.position;
+        fadeJoy = StartCoroutine(JoyHide());
+    }
+
+    void Move(PointerEventData eventData) // Move thumb image position
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(joyBg, eventData.position, eventData.pressEventCamera, out Vector2 pos))
         {
@@ -29,38 +54,24 @@ public class Joystick : Singleton<Joystick>, IDragHandler, IPointerUpHandler, IP
 
             inputVector = new Vector3(pos.x * 2, 0, pos.y * 2);
             inputVector = (inputVector.magnitude > 1.0f) ? inputVector.normalized : inputVector;
-
             joyThumb.anchoredPosition = new Vector3(inputVector.x * (joyBg.sizeDelta.x / 3), inputVector.z * (joyBg.sizeDelta.y / 3));
         }
     }
 
-    public Vector2 GetThumbPosition()
+    void Release()
     {
-        return joyThumb.anchoredPosition / joyBg.sizeDelta;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        ShowJoystick(eventData);
-        OnDrag(eventData);
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        //joyGroup.interactable = false;
-        //joyGroup.blocksRaycasts = false;
         StopCoroutine(fadeJoy);
-        joyGroup.alpha = 1;
+        joyGroup.DOKill();
+        joyGroup.DOFade(0, .25f);
         inputVector = Vector3.zero;
         joyThumb.localPosition = Vector3.zero;
     }
 
-    public void ShowJoystick(PointerEventData eventData)
+    IEnumerator JoyHide()
     {
-        joyBg.position = eventData.position;
-        //joyGroup.interactable = true;
-        //joyGroup.blocksRaycasts = true;
-        fadeJoy = StartCoroutine(JoyHide());
+        yield return new WaitForSeconds(2);
+
+        joyGroup.DOFade(.25f, .25f);
     }
 
     public float Horizontal()
@@ -77,12 +88,5 @@ public class Joystick : Singleton<Joystick>, IDragHandler, IPointerUpHandler, IP
             return inputVector.z;
         else
             return Input.GetAxis("Vertical");
-    }
-
-    IEnumerator JoyHide()
-    {
-        yield return new WaitForSeconds(2);
-
-        joyGroup.DOFade(.25f, .25f);
     }
 }
