@@ -12,15 +12,6 @@ public class Joystick : Singleton<Joystick>, IDragHandler, IPointerUpHandler, IP
     Vector3 inputVector;
     Coroutine fadeJoy;
 
-    /* Example
-     * // Get joystick direction
-        float horizontal = Joystick.Instance.Horizontal();
-        float vertical = Joystick.Instance.Vertical();
-
-        // Set direction
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-    */
-
     public void OnPointerDown(PointerEventData eventData)
     {
         Show(eventData);
@@ -49,8 +40,7 @@ public class Joystick : Singleton<Joystick>, IDragHandler, IPointerUpHandler, IP
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(joyBg, eventData.position, eventData.pressEventCamera, out Vector2 pos))
         {
-            pos.x /= joyBg.sizeDelta.x;
-            pos.y /= joyBg.sizeDelta.y;
+            pos /= joyBg.sizeDelta;
 
             inputVector = new Vector3(pos.x * 2, 0, pos.y * 2);
             inputVector = (inputVector.magnitude > 1.0f) ? inputVector.normalized : inputVector;
