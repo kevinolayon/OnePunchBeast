@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     Rigidbody rb;
     Animator anim;
     Joystick joystick;
+    Vector3 direction;
 
     bool isMoving;
 
@@ -38,7 +39,7 @@ public class PlayerManager : MonoBehaviour
         float vertical = joystick.Vertical();
 
         // Set direction
-        Vector3 direction = new(horizontal, 0f, vertical);
+        direction = new(horizontal, 0f, vertical);
 
         // Deadzone
         if (direction.magnitude > .1f)
@@ -57,5 +58,19 @@ public class PlayerManager : MonoBehaviour
         float animSpeed = speedMultiplier * 1 + 1;
         anim.speed = isMoving ? Mathf.Max(animSpeed, 1) : 1;
         anim.SetBool("walking", isMoving);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemie"))
+        {
+            Enemie enemie = other.GetComponent<Enemie>();
+
+            if (enemie != null)
+            {
+                enemie.Die(direction);
+                anim.SetTrigger("punching");
+            }
+        }
     }
 }
