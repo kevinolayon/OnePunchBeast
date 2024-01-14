@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -8,23 +5,20 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] float speedMultiplier = .2f;
 
+    IPunch punch;
+
     Rigidbody rb;
     Animator anim;
     Joystick joystick;
-    Vector3 direction;
 
     bool isMoving;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();    
+        punch = GetComponent<IPunch>();
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         joystick = Joystick.Instance;
-    }
-
-    void Start()
-    {
-        
     }
 
     void Update()
@@ -39,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         float vertical = joystick.Vertical();
 
         // Set direction
-        direction = new(horizontal, 0f, vertical);
+        Vector3 direction = new(horizontal, 0f, vertical);
 
         // Deadzone
         if (direction.magnitude > .1f)
@@ -62,15 +56,6 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemie"))
-        {
-            Enemie enemie = other.GetComponent<Enemie>();
-
-            if (enemie != null)
-            {
-                enemie.Die(direction);
-                anim.SetTrigger("punching");
-            }
-        }
+        punch.Punching(other);
     }
 }
