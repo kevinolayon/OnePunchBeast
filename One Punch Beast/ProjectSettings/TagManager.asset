@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemie
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Ragdoll
   - 
   - 
   - 

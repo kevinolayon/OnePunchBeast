@@ -6,16 +6,21 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float speedMultiplier = .2f;
 
     IPunch punch;
+    IInteract interact;
+    IInteractable drag;
 
     Rigidbody rb;
     Animator anim;
+
     Joystick joystick;
 
     bool isMoving;
 
     private void Awake()
     {
+        interact = GetComponent<IInteract>();
         punch = GetComponent<IPunch>();
+
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         joystick = Joystick.Instance;
@@ -57,5 +62,11 @@ public class PlayerManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         punch.Punching(other);
+        interact.Interact(other);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        interact.StopTimeInteraction();
     }
 }

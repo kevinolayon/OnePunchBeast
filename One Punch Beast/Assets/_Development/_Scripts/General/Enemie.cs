@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class Enemie : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    bool isPunchable = true;
+    //bool isDraggable; = false;
 
+    IPunchable punchable;
+
+    private void Awake()
+    {
+        punchable = GetComponent<IPunchable>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsPunchable()
     {
+        return isPunchable;
+    }
 
+    public void BePunched()
+    {
+        //punchable.Punched(
     }
 }

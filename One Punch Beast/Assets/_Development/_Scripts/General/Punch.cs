@@ -16,8 +16,12 @@ public class Punch : MonoBehaviour, IPunch
     {
         if (other.CompareTag(targetTag))
         {            
-            if (other.TryGetComponent<Puncheable>(out var enemie))
+            Puncheable enemie = other.GetComponentInParent<Puncheable>();
+
+            if (enemie != null)
             {
+                if (!enemie.CanPunch()) return;
+
                 // Get force and direction
                 Vector3 newDir = other.transform.position - transform.position;
                 newDir.y = 1;
