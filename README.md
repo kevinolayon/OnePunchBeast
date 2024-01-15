@@ -1,2 +1,2 @@
-# OnePunchBeast
-Desenvolvido para o teste na 67 Bits
+# One Punch Beast
+Desenvolvido na versão Unity 2023.1.15f1 para um teste.
