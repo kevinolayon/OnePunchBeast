@@ -17,7 +17,8 @@ public class Drag : MonoBehaviour, IInteract, IDrag
 
     Coroutine stop;
 
-    bool dragging;
+    bool interacting;
+    bool waiting;
 
     IInteractable interactable;
 
@@ -50,8 +51,7 @@ public class Drag : MonoBehaviour, IInteract, IDrag
 
     public void Interact(Collider other)
     {
-        dragging = false;
-        if (other.CompareTag(targetTag))
+        if (other.CompareTag(targetTag) && !interacting)
         {
             interactable = other.GetComponentInParent<IInteractable>();
 
@@ -65,9 +65,11 @@ public class Drag : MonoBehaviour, IInteract, IDrag
 
     public IEnumerator TimeToInteract(float timer, Collider other)
     {
+        waiting = false;
+        interacting = true;
         yield return new WaitForSeconds(timer);
 
-        dragging = true;
+        waiting = true;
         interactable.Interacting();
 
         // Set the bodie in the pile stack
@@ -76,16 +78,21 @@ public class Drag : MonoBehaviour, IInteract, IDrag
         //other.transform.parent.DOLocalRotate(Vector3.zero, 1, RotateMode.Fast);
         //other.transform.DOLocalMove(Vector3.zero, 1);
         //other.transform.DOLocalRotate(Vector3.zero, 1, RotateMode.Fast);
+
         DragList.Add(other.transform);
         CanvasManager.Instance.UpdateStack();
 
         interactable = null;
+        interacting = false;
     }
 
     public void StopTimeInteraction()
     {
-        if (!dragging && stop != null)
+        if (!waiting && stop != null)
+        {
             StopCoroutine(stop);
+            interacting = false;
+        }
     }
 
     public void StackIncrease()
