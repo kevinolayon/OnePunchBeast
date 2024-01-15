@@ -1,18 +1,20 @@
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : Singleton<PlayerManager>
 {
     [SerializeField] float movementSpeed = 5f;
     [SerializeField] float speedMultiplier = .2f;
+    [SerializeField] SkinnedMeshRenderer matColor;
 
     IPunch punch;
     IInteract interact;
-    IInteractable drag;
+    IDrag drag;
 
     Rigidbody rb;
     Animator anim;
 
     Joystick joystick;
+    CanvasManager canvas;
 
     bool isMoving;
 
@@ -20,10 +22,12 @@ public class PlayerManager : MonoBehaviour
     {
         interact = GetComponent<IInteract>();
         punch = GetComponent<IPunch>();
+        drag = GetComponent<IDrag>();
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         joystick = Joystick.Instance;
+        canvas = CanvasManager.Instance;
     }
 
     void Update()
@@ -63,10 +67,33 @@ public class PlayerManager : MonoBehaviour
     {
         punch.Punching(other);
         interact.Interact(other);
+
+        if (other.CompareTag("Shop"))
+        {
+            canvas.ShowUpgrades();
+
+            canvas.AddCurrency(drag.Release() * 50);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         interact.StopTimeInteraction();
+
+        if (other.CompareTag("Shop"))
+        {
+            canvas.HideUpgrades();
+        }
+    }
+
+    public void ChangeColor()
+    {
+        Color randomColor = new(Random.value, Random.value, Random.value);
+        matColor.material.color = randomColor;
+    }
+
+    public void IncreaseStack()
+    {
+        drag.StackIncrease();
     }
 }

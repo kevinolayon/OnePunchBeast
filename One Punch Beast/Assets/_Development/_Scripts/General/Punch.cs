@@ -21,6 +21,7 @@ public class Punch : MonoBehaviour, IPunch
             if (enemie != null)
             {
                 if (!enemie.CanPunch()) return;
+                anim.SetTrigger("punching");
 
                 // Get force and direction
                 Vector3 newDir = other.transform.position - transform.position;
@@ -31,7 +32,6 @@ public class Punch : MonoBehaviour, IPunch
                 Vector3 newPos = other.ClosestPoint(transform.position);
 
                 enemie.Punched(newForce, newPos);
-                anim.SetTrigger("punching");
             }
         }
     }

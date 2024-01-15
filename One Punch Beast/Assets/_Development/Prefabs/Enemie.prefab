@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3208799879218879318}
   - component: {fileID: 5755905154262692244}
   - component: {fileID: 8335569064682447918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8200364824550703926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 895558373066058148}
   - component: {fileID: 6949782002981819304}
   - component: {fileID: 7161316172475853148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4690442325793125848}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 715216796190825408}
   - component: {fileID: 8296562724874539363}
   - component: {fileID: 3911785781941452707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bowtie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8782119942538111812}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 1745466083523225252}
   - component: {fileID: 6116621192559855684}
   - component: {fileID: 1252287095651963188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BackPack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 2857413577762175791}
   - component: {fileID: 2109858491673565989}
   - component: {fileID: 4153443059373430636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glasses_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 1276558273239982926}
   - component: {fileID: 3615498066348547205}
   - component: {fileID: 4808049989797757111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,6 +924,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bde3b2c705cf047ac7428d3f82dab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerToAvoid:
+    serializedVersion: 2
+    m_Bits: 72
 --- !u!95 &6783268102336003304
 Animator:
   serializedVersion: 7
@@ -957,7 +960,7 @@ GameObject:
   - component: {fileID: 6956608960622243901}
   - component: {fileID: 8593119791083680278}
   - component: {fileID: 4999259092148260577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat_Witch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1040,7 +1043,7 @@ GameObject:
   - component: {fileID: 4793568991974234533}
   - component: {fileID: 702778686656205317}
   - component: {fileID: 487166949154638862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat_Beanie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1126,7 @@ GameObject:
   - component: {fileID: 2184167696362503022}
   - component: {fileID: 6045785617733468028}
   - component: {fileID: 2792380219121619518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glasses_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1206,7 +1209,7 @@ GameObject:
   - component: {fileID: 1372176142638135188}
   - component: {fileID: 947151994307636875}
   - component: {fileID: 4457295653464138879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat_Cowboy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1293,7 @@ GameObject:
   - component: {fileID: 7773785605903215156}
   - component: {fileID: 3405664889904515237}
   - component: {fileID: 5054563911949655480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:Hips
   m_TagString: Enemie
   m_Icon: {fileID: 0}
@@ -1393,7 +1396,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2052207355088131327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:HeadTop_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1427,7 +1430,7 @@ GameObject:
   - component: {fileID: 5345280496416796362}
   - component: {fileID: 7030471172946118848}
   - component: {fileID: 6595513924950053948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,7 +1558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 796030931051551300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1589,7 +1592,7 @@ GameObject:
   - component: {fileID: 1887076183283261783}
   - component: {fileID: 4906665161676255481}
   - component: {fileID: 5961317236281254184}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Headphones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,7 +1673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8476461803272040320}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1798,7 +1801,7 @@ GameObject:
   - component: {fileID: 617422283491603594}
   - component: {fileID: 4977436220282360378}
   - component: {fileID: 7940042876962591365}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glasses_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,7 +1885,7 @@ GameObject:
   - component: {fileID: 5026100268712421859}
   - component: {fileID: 4647983849816985884}
   - component: {fileID: 3874019288045873454}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2012,7 +2015,7 @@ GameObject:
   - component: {fileID: 5527856193445938591}
   - component: {fileID: 4505050027104979507}
   - component: {fileID: 8874000556017192891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hair_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2093,7 +2096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 647135930356931137}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2125,7 +2128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1710236740517948433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2157,7 +2160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3111486401486867829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftToe_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2190,7 +2193,7 @@ GameObject:
   - component: {fileID: 6191289495843752608}
   - component: {fileID: 7090925605509105239}
   - component: {fileID: 6913412574156995471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat_Crown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2273,7 +2276,7 @@ GameObject:
   - component: {fileID: 7089856626829350775}
   - component: {fileID: 5462261582119856257}
   - component: {fileID: 4322251587049027468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat_Cap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2356,7 +2359,7 @@ GameObject:
   - component: {fileID: 7244399230761499578}
   - component: {fileID: 7778456090591723700}
   - component: {fileID: 1919593831727597486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glasses_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2439,7 +2442,7 @@ GameObject:
   - component: {fileID: 7188200773706896816}
   - component: {fileID: 4811837205976477547}
   - component: {fileID: 4352445599930117471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat_Sombrero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2522,7 +2525,7 @@ GameObject:
   - component: {fileID: 3632881094197831303}
   - component: {fileID: 6651124759485917486}
   - component: {fileID: 2578915266780409829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hair_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2605,7 +2608,7 @@ GameObject:
   - component: {fileID: 7562037574873731404}
   - component: {fileID: 1143147123336268223}
   - component: {fileID: 7090980506859015939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hair_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2689,7 +2692,7 @@ GameObject:
   - component: {fileID: 3761293548152575747}
   - component: {fileID: 3260103585225567455}
   - component: {fileID: 192558560575842276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2832,7 +2835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6277362991770910937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2864,7 +2867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 692896222385522162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2899,7 +2902,7 @@ GameObject:
   - component: {fileID: 1990251916117715212}
   - component: {fileID: 436945195986774946}
   - component: {fileID: 6067885027609104907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3030,7 +3033,7 @@ GameObject:
   - component: {fileID: 2747926188999024805}
   - component: {fileID: 4924798985948604714}
   - component: {fileID: 8212791039850345954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3260,7 +3263,7 @@ GameObject:
   - component: {fileID: 8072064377283696604}
   - component: {fileID: 4646423841392533017}
   - component: {fileID: 8331003906226235633}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hair_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3344,7 +3347,7 @@ GameObject:
   - component: {fileID: 1808327978194470890}
   - component: {fileID: 3173116656219310989}
   - component: {fileID: 3374559930910018439}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3474,7 +3477,7 @@ GameObject:
   - component: {fileID: 5716350568366690331}
   - component: {fileID: 907706527028794840}
   - component: {fileID: 293040000275908418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glasses_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3555,7 +3558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2619347603413790750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3589,7 +3592,7 @@ GameObject:
   - component: {fileID: 513928915117268119}
   - component: {fileID: 2708801367662758984}
   - component: {fileID: 9202219544263396334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3719,7 +3722,7 @@ GameObject:
   - component: {fileID: 4755425831164102380}
   - component: {fileID: 5488445431962950816}
   - component: {fileID: 2439410529525384066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hat_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3800,7 +3803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8077997590884260360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3832,7 +3835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6367686018188498236}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: mixamorig:RightToe_End
   m_TagString: Untagged
   m_Icon: {fileID: 0}

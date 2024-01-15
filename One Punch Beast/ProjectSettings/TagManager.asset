@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemie
   - FxTemporaire
+  - Shop
   layers:
   - Default
   - TransparentFX
