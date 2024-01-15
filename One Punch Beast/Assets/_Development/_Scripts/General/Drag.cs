@@ -16,8 +16,11 @@ public class Drag : MonoBehaviour, IInteract, IDrag
     List<Transform> DragList = new();
 
     Coroutine stop;
+
     bool dragging;
+
     IInteractable interactable;
+
 
     //private void Awake()
     //{
@@ -27,7 +30,7 @@ public class Drag : MonoBehaviour, IInteract, IDrag
     //    }
     //}
 
-    private void Start()
+    private void Awake()
     {
         DragList.Add(transform);
     }
@@ -62,7 +65,6 @@ public class Drag : MonoBehaviour, IInteract, IDrag
 
     public IEnumerator TimeToInteract(float timer, Collider other)
     {
-        Debug.Log("T");
         yield return new WaitForSeconds(timer);
 
         dragging = true;
@@ -75,6 +77,7 @@ public class Drag : MonoBehaviour, IInteract, IDrag
         //other.transform.DOLocalMove(Vector3.zero, 1);
         //other.transform.DOLocalRotate(Vector3.zero, 1, RotateMode.Fast);
         DragList.Add(other.transform);
+        CanvasManager.Instance.UpdateStack();
 
         interactable = null;
     }
@@ -101,12 +104,24 @@ public class Drag : MonoBehaviour, IInteract, IDrag
             {
                 Transform drag = DragList[i];
                 Rigidbody dragRb = drag.GetComponent<Rigidbody>();
+                Collider col = drag.GetComponent<Collider>();
                 dragRb.isKinematic = false;
-                dragRb.includeLayers = LayerMask.NameToLayer("Player");
+                col.excludeLayers &= ~(1 << LayerMask.NameToLayer("Player"));
+                dragRb.excludeLayers &= ~(1 << LayerMask.NameToLayer("Player"));
                 DragList.RemoveAt(i);
             }
         }
 
         return count;
+    }
+
+    public int MaxStack()
+    {
+        return maxStack;
+    }
+
+    public int CurrentStack()
+    {
+        return DragList.Count - 1;
     }
 }

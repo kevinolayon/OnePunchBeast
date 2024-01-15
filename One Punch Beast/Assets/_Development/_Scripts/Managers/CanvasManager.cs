@@ -5,12 +5,14 @@ using UnityEngine;
 public class CanvasManager : Singleton<CanvasManager>
 {
     [SerializeField] int currency;
+    [SerializeField] int amountReceived;
     [SerializeField] int colorUpgradePrice = 100;
     [SerializeField] int stackUpgradePrice = 150;
     [SerializeField] CanvasGroup upgrades;
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] TextMeshProUGUI stackPriceText;
     [SerializeField] TextMeshProUGUI colorPriceText;
+    [SerializeField] TextMeshProUGUI maxStackCount;
 
     PlayerManager player;
 
@@ -20,6 +22,11 @@ public class CanvasManager : Singleton<CanvasManager>
         currencyText.text = currency.ToString("C");
         stackPriceText.text = stackUpgradePrice.ToString("C");
         colorPriceText.text = colorUpgradePrice.ToString("C");
+    }
+
+    private void Start()
+    {
+        maxStackCount.text = player.CurrentStack() + " / " + player.MaxStack();
     }
 
     public void ShowUpgrades()
@@ -38,7 +45,7 @@ public class CanvasManager : Singleton<CanvasManager>
 
     public void AddCurrency(int amount)
     {
-        currency += amount;
+        currency += amount * amountReceived;
         currencyText.text = currency.ToString("C");
     }
 
@@ -52,7 +59,9 @@ public class CanvasManager : Singleton<CanvasManager>
     public void UpgradeStack()
     {
         if (currency < stackUpgradePrice) return;
-
+        player.IncreaseStack();
+        RemoveCurrency(stackUpgradePrice);
+        UpdateStack();
     }
 
     public void UpgradeColor()
@@ -60,5 +69,10 @@ public class CanvasManager : Singleton<CanvasManager>
         if (currency < colorUpgradePrice) return;
         player.ChangeColor();
         RemoveCurrency(colorUpgradePrice);
+    }
+
+    public void UpdateStack()
+    {
+        maxStackCount.text = player.CurrentStack() + " / " + player.MaxStack();
     }
 }

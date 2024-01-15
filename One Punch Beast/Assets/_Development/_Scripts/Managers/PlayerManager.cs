@@ -72,7 +72,8 @@ public class PlayerManager : Singleton<PlayerManager>
         {
             canvas.ShowUpgrades();
 
-            canvas.AddCurrency(drag.Release() * 50);
+            canvas.AddCurrency(drag.Release());
+            canvas.UpdateStack();
         }
     }
 
@@ -95,5 +96,15 @@ public class PlayerManager : Singleton<PlayerManager>
     public void IncreaseStack()
     {
         drag.StackIncrease();
+    }
+
+    public int MaxStack()
+    {
+        return drag.MaxStack();
+    }
+
+    public int CurrentStack()
+    {
+        return drag.CurrentStack();
     }
 }
